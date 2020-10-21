@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/EnterPassword_dest">
+
+
+    <!--Global action-->
+    <action android:id="@+id/action_logout"
+            app:popUpToInclusive="true"
+            app:destination="@+id/EnterPassword_dest"/>
+
+    <fragment
+        android:id="@+id/EnterPassword_dest"
+        android:name="com.example.pracnavigationsecertstuff.FragmentEnterPassword"
+        android:label="fragment_enter_password"
+        tools:layout="@layout/fragment_enter_password" >
+        <action
+            android:id="@+id/action_fragmentEnterPassword_to_fragmentFailedLogin"
+            app:destination="@id/FailedLogin_dest" />
+        <action
+            android:id="@+id/action_fragmentEnterPassword_to_fragmentSecertStuff"
+            app:destination="@id/SecretStuff_dest" />
+    </fragment>
+    <fragment
+        android:id="@+id/FailedLogin_dest"
+        android:name="com.example.pracnavigationsecertstuff.FragmentFailedLogin"
+        android:label="fragment_failed_login"
+        tools:layout="@layout/fragment_failed_login" />
+    <fragment
+        android:id="@+id/SecretStuff_dest"
+        android:name="com.example.pracnavigationsecertstuff.FragmentSecretStuff"
+        android:label="fragment_secert_stuff"
+        tools:layout="@layout/fragment_secret_stuff" >
+        <action
+            android:id="@+id/action_fragmentSecertStuff_to_fragmentSuperSecret"
+            app:destination="@id/SuperSecret_dest" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/SuperSecret_dest"
+        android:name="com.example.pracnavigationsecertstuff.FragmentSuperSecret"
+        android:label="FragmentSuperSecret"
+        tools:layout="@layout/fragment_super_secret">
+
+    </fragment>
+</navigation>
