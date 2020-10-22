@@ -50,5 +50,9 @@
         android:label="FragmentSuperSecret"
         tools:layout="@layout/fragment_super_secret">
 
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="myapp://navsecretStuff.com/supersecret" />
+
     </fragment>
 </navigation>

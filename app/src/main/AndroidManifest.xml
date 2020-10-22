@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pracnavigationsecertstuff">
 
@@ -15,7 +14,21 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <nav-graph android:value="@navigation/nav_graph" />
         </activity>
-    </application>
 
+        <receiver android:name="com.example.pracnavigationsecertstuff.DeepLinkWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/deep_link_widget_provider2_info" />
+        </receiver>
+    </application>
 </manifest>
+
+
+
+
