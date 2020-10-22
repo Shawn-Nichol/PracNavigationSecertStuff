@@ -31,7 +31,6 @@ class FragmentEnterPassword : Fragment() {
     }
 
     fun enterPassword() {
-        Log.i("Prac", "Enter password")
         val password = editText_password.text.toString().toInt()
 
         Log.i("Prac", "password: $password")
@@ -39,7 +38,9 @@ class FragmentEnterPassword : Fragment() {
         if (password == 1234) {
             findNavController().navigate(R.id.SecretStuff_dest)
         } else {
-            findNavController().navigate(R.id.FailedLogin_dest)
+
+            val action = FragmentEnterPasswordDirections.actionFragmentEnterPasswordToFragmentFailedLogin(password)
+            findNavController().navigate(action)
         }
     }
 }

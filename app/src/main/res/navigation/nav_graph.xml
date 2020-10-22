@@ -27,7 +27,13 @@
         android:id="@+id/FailedLogin_dest"
         android:name="com.example.pracnavigationsecertstuff.FragmentFailedLogin"
         android:label="fragment_failed_login"
-        tools:layout="@layout/fragment_failed_login" />
+        tools:layout="@layout/fragment_failed_login">
+
+        <argument
+            android:name="argument_FailedLogin"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
     <fragment
         android:id="@+id/SecretStuff_dest"
         android:name="com.example.pracnavigationsecertstuff.FragmentSecretStuff"
