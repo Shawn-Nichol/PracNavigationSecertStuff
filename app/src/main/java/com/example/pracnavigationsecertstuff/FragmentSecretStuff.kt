@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.pracnavigationsecertstuff.databinding.FragmentSecretStuffBinding
+import kotlinx.android.synthetic.main.fragment_secret_stuff.*
 
 
 class FragmentSecretStuff : Fragment() {
@@ -26,10 +28,11 @@ class FragmentSecretStuff : Fragment() {
     }
 
     fun logout() {
-
+        findNavController().navigate(R.id.action_logout)
     }
 
     fun superSecretStuff() {
-        findNavController().navigate(R.id.SuperSecret_dest)
+        val extras = FragmentNavigatorExtras(tv_super_secret_stuff to "secret_transition")
+        findNavController().navigate(R.id.action_fragmentSecertStuff_to_fragmentSuperSecret, null, null, extras)
     }
 }

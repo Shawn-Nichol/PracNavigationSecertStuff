@@ -1,6 +1,7 @@
 package com.example.pracnavigationsecertstuff
 
 import android.os.Bundle
+import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,11 @@ import com.example.pracnavigationsecertstuff.databinding.FragmentSuperSecretBind
 
 class FragmentSuperSecret : Fragment() {
     private lateinit var binding: FragmentSuperSecretBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

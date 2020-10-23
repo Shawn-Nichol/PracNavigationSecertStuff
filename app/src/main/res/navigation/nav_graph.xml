@@ -7,9 +7,12 @@
 
 
     <!--Global action-->
-    <action android:id="@+id/action_logout"
-            app:popUpToInclusive="true"
-            app:destination="@+id/EnterPassword_dest"/>
+    <action
+        android:id="@+id/action_logout"
+        app:destination="@+id/EnterPassword_dest"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"
+        app:popUpToInclusive="true" />
 
     <fragment
         android:id="@+id/EnterPassword_dest"
@@ -18,10 +21,18 @@
         tools:layout="@layout/fragment_enter_password" >
         <action
             android:id="@+id/action_fragmentEnterPassword_to_fragmentFailedLogin"
-            app:destination="@id/FailedLogin_dest" />
+            app:destination="@id/FailedLogin_dest"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
-            android:id="@+id/action_fragmentEnterPassword_to_fragmentSecertStuff"
-            app:destination="@id/SecretStuff_dest" />
+            android:id="@+id/action_fragmentEnterPassword_to_fragmentSecretStuff"
+            app:destination="@id/SecretStuff_dest"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/FailedLogin_dest"

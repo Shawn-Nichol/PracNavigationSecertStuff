@@ -16,6 +16,8 @@ class FragmentEnterPassword : Fragment() {
 
     private lateinit var binding: FragmentEnterPasswordBinding
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -36,7 +38,7 @@ class FragmentEnterPassword : Fragment() {
         Log.i("Prac", "password: $password")
 
         if (password == 1234) {
-            findNavController().navigate(R.id.SecretStuff_dest)
+            findNavController().navigate(R.id.action_fragmentEnterPassword_to_fragmentSecretStuff)
         } else {
 
             val action = FragmentEnterPasswordDirections.actionFragmentEnterPasswordToFragmentFailedLogin(password)
