@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId) {
-            R.id.fragmentSecretOne -> {
+            R.id.fragmentMenuOne -> {
                 displayMenuItemSelection("Fragment secret one")
 
                 val navController = findNavController(R.id.nav_host_fragment)

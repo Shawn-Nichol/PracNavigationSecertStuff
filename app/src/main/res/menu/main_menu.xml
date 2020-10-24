@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/fragmentSecretOne"
+        android:id="@+id/fragmentMenuOne"
         android:title="Item One"
         android:icon="@drawable/ic_building"
         app:showAsAction="ifRoom"/>

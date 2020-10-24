@@ -6,22 +6,22 @@
     <data>
         <variable
             name="binding"
-            type="com.example.pracnavigationsecertstuff.FragmentSuperSecret" />
+            type="com.example.pracnavigationsecertstuff.FragmentLoginFailed" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".FragmentSuperSecret">
+        tools:context=".FragmentLoginFailed">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tv_failed_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="Super Secret Stuff"
-            android:textSize="48sp"
-            android:transitionName="secret_transition"
+            android:text="Password Incorrect"
+            android:textSize="64sp"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -29,12 +29,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{()->binding.logout()}"
-            android:text="LogOut"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="Retry"
+            android:onClick="@{()-> binding.retryPassword()}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

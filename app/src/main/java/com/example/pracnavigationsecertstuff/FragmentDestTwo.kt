@@ -8,11 +8,12 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.pracnavigationsecertstuff.databinding.FragmentSuperSecretBinding
+import com.example.pracnavigationsecertstuff.databinding.FragmentDestTwoBinding
 
 
-class FragmentSuperSecret : Fragment() {
-    private lateinit var binding: FragmentSuperSecretBinding
+
+class FragmentDestTwo : Fragment() {
+    private lateinit var binding: FragmentDestTwoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +25,7 @@ class FragmentSuperSecret : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_super_secret, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_dest_two, container, false)
         binding.binding = this
 
         return binding.root

@@ -10,13 +10,14 @@ import androidx.appcompat.widget.PopupMenu
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.pracnavigationsecertstuff.databinding.FragmentEnterPasswordBinding
-import kotlinx.android.synthetic.main.fragment_enter_password.*
+
+import com.example.pracnavigationsecertstuff.databinding.FragmentLoginBinding
+import kotlinx.android.synthetic.main.fragment_login.*
 
 
-class FragmentEnterPassword : Fragment(), PopupMenu.OnMenuItemClickListener {
+class FragmentLogin : Fragment(), PopupMenu.OnMenuItemClickListener {
 
-    private lateinit var binding: FragmentEnterPasswordBinding
+    private lateinit var binding: FragmentLoginBinding
     private lateinit var mContext: Context
 
     override fun onAttach(context: Context) {
@@ -31,7 +32,7 @@ class FragmentEnterPassword : Fragment(), PopupMenu.OnMenuItemClickListener {
     ): View? {
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_enter_password,
+            R.layout.fragment_login,
             container,
             false
         )
@@ -79,7 +80,7 @@ class FragmentEnterPassword : Fragment(), PopupMenu.OnMenuItemClickListener {
 
 
     fun enterPassword() {
-        val password = editText_password.text.toString().toInt()
+        val password: Int? = editText_password.text.toString().toInt()
 
         Log.i("Prac", "password: $password")
 
@@ -88,8 +89,8 @@ class FragmentEnterPassword : Fragment(), PopupMenu.OnMenuItemClickListener {
         } else {
 
             val action =
-                FragmentEnterPasswordDirections.actionFragmentEnterPasswordToFragmentFailedLogin(
-                    password
+                FragmentLoginDirections.actionFragmentEnterPasswordToFragmentFailedLogin(
+                    password ?: -1
                 )
             findNavController().navigate(action)
         }
@@ -157,7 +158,7 @@ class FragmentEnterPassword : Fragment(), PopupMenu.OnMenuItemClickListener {
     fun myPopMenu(v: View) {
         PopupMenu(mContext, v).apply {
             //
-            setOnMenuItemClickListener(this@FragmentEnterPassword)
+            setOnMenuItemClickListener(this@FragmentLogin)
             //setOnMenuItemClickListener()
             inflate(R.menu.main_menu)
             show()
@@ -166,7 +167,7 @@ class FragmentEnterPassword : Fragment(), PopupMenu.OnMenuItemClickListener {
 
     override fun onMenuItemClick(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.fragmentSecretOne-> {
+            R.id.fragmentMenuOne-> {
                 displayToast("Pop Menu One")
                 true
             }

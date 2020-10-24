@@ -8,18 +8,19 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.pracnavigationsecertstuff.databinding.FragmentFailedLoginBinding
+import com.example.pracnavigationsecertstuff.databinding.FragmentLoginFailedBinding
 
 
-class FragmentFailedLogin : Fragment() {
+class FragmentLoginFailed : Fragment() {
 
-    private lateinit var binding: FragmentFailedLoginBinding
+    private lateinit var binding: FragmentLoginFailedBinding
 
     private var password: Int = -1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val args = FragmentFailedLoginArgs.fromBundle(requireArguments())
+        val args = FragmentLoginFailedArgs.fromBundle(requireArguments())
+
 
         password = args.argumentFailedLogin
         Log.i("Prac", "Failed password is $password")
@@ -30,7 +31,8 @@ class FragmentFailedLogin : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_failed_login, container, false)
+        binding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_login_failed, container, false)
 
         binding.binding = this
 

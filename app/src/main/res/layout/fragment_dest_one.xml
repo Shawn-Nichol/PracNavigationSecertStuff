@@ -6,19 +6,19 @@
     <data>
         <variable
             name="binding"
-            type="com.example.pracnavigationsecertstuff.FragmentSecretStuff" />
+            type="com.example.pracnavigationsecertstuff.FragmentDestOne" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".FragmentSecretStuff">
+        tools:context=".FragmentDestOne">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="My Secret Stuff"
+            android:text="Destination One"
             android:textAlignment="center"
             android:textSize="48sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -37,12 +37,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_super_secret_stuff"
+            android:id="@+id/tv_destination_two"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:onClick="@{()->binding.superSecretStuff()}"
-            android:text="Super Secret Stuff"
+            android:text="Destination Two"
             android:transitionName="secret_transition"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

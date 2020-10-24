@@ -16,9 +16,9 @@
 
     <fragment
         android:id="@+id/EnterPassword_dest"
-        android:name="com.example.pracnavigationsecertstuff.FragmentEnterPassword"
+        android:name="com.example.pracnavigationsecertstuff.FragmentLogin"
         android:label="fragment_enter_password"
-        tools:layout="@layout/fragment_enter_password" >
+        tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_fragmentEnterPassword_to_fragmentFailedLogin"
             app:destination="@id/FailedLogin_dest"
@@ -39,9 +39,9 @@
     </fragment>
     <fragment
         android:id="@+id/FailedLogin_dest"
-        android:name="com.example.pracnavigationsecertstuff.FragmentFailedLogin"
+        android:name="com.example.pracnavigationsecertstuff.FragmentLoginFailed"
         android:label="fragment_failed_login"
-        tools:layout="@layout/fragment_failed_login">
+        tools:layout="@layout/fragment_login_failed">
 
         <argument
             android:name="argument_FailedLogin"
@@ -50,9 +50,9 @@
     </fragment>
     <fragment
         android:id="@+id/SecretStuff_dest"
-        android:name="com.example.pracnavigationsecertstuff.FragmentSecretStuff"
+        android:name="com.example.pracnavigationsecertstuff.FragmentDestOne"
         android:label="fragment_secert_stuff"
-        tools:layout="@layout/fragment_secret_stuff" >
+        tools:layout="@layout/fragment_dest_one" >
         <action
             android:id="@+id/action_fragmentSecertStuff_to_fragmentSuperSecret"
             app:destination="@id/SuperSecret_dest" />
@@ -60,9 +60,9 @@
 
     <fragment
         android:id="@+id/SuperSecret_dest"
-        android:name="com.example.pracnavigationsecertstuff.FragmentSuperSecret"
+        android:name="com.example.pracnavigationsecertstuff.FragmentDestTwo"
         android:label="FragmentSuperSecret"
-        tools:layout="@layout/fragment_super_secret">
+        tools:layout="@layout/fragment_dest_two">
 
         <deepLink
             android:id="@+id/deepLink"
@@ -70,8 +70,8 @@
 
     </fragment>
     <fragment
-        android:id="@+id/fragmentSecretOne"
-        android:name="com.example.pracnavigationsecertstuff.FragmentSecretOne"
+        android:id="@+id/fragmentMenuOne"
+        android:name="com.example.pracnavigationsecertstuff.FragmentMenuOne"
         android:label="FragmentSecretOne"
-        tools:layout="@layout/fragment_secret_one"/>
+        tools:layout="@layout/fragment_menu_one"/>
 </navigation>
