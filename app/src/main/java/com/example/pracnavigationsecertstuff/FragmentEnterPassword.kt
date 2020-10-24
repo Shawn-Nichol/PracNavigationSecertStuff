@@ -37,10 +37,45 @@ class FragmentEnterPassword : Fragment() {
 
         binding.binding = this
 
+        // Register view for floating menu.
+        registerForContextMenu(binding.btnFloatingMenu)
+
 
         Log.i("Prac", "onCreateView")
         return binding.root
     }
+
+    override fun onCreateContextMenu(
+        menu: ContextMenu,
+        v: View,
+        menuInfo: ContextMenu.ContextMenuInfo?
+    ) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+        val inflater = MenuInflater(context)
+        inflater.inflate(R.menu.contextual_menu,menu)
+
+
+    }
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.contextual_one -> {
+                displayToast("Floating menu Item One")
+                true
+            }
+            R.id.contextual_two -> {
+                displayToast("Floating menu Item Two")
+                true
+            }
+            R.id.contextual_three -> {
+                displayToast("Floating menu Item Three")
+                true
+            }
+            else -> false
+        }
+
+    }
+
 
     fun enterPassword() {
         val password = editText_password.text.toString().toInt()
@@ -90,17 +125,17 @@ class FragmentEnterPassword : Fragment() {
         override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {
             return when (item.itemId) {
                 R.id.contextual_one -> {
-                    displayCAB("One")
+                    displayToast("CAB One")
                     mode.finish() // Action picked, so close the CAB
                     true
                 }
                 R.id.contextual_two -> {
-                    displayCAB("Two")
+                    displayToast("CAB Two")
                     mode.finish() // Action picked, so close the CAB
                     true
                 }
                 R.id.contextual_three -> {
-                    displayCAB("Three")
+                    displayToast("CAB Three")
                     mode.finish() // Action picked, so close the CAB
                     true
                 }
@@ -112,17 +147,12 @@ class FragmentEnterPassword : Fragment() {
         override fun onDestroyActionMode(mode: ActionMode) {
             mActionMode = null
         }
-
-        fun displayCAB(item: String) {
-            Toast.makeText(context, "CAB item: $item", Toast.LENGTH_LONG).show()
-        }
     }
 
-
-
-
-
-
+    private fun displayToast(text: String) {
+        Toast.makeText(context, text, Toast.LENGTH_LONG).show()
+    }
+    
 }
 
 
