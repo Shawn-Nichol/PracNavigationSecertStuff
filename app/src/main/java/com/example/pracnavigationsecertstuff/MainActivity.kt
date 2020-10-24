@@ -3,8 +3,10 @@ package com.example.pracnavigationsecertstuff
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.PopupMenu
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +41,16 @@ class MainActivity : AppCompatActivity() {
     fun displayMenuItemSelection(item: String) {
         Toast.makeText(applicationContext, "MenuItem $item selected", Toast.LENGTH_LONG).show()
 
+    }
+
+    fun myPopMenu(v: View) {
+        PopupMenu(this, v).apply {
+            //
+//            setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener)
+            //setOnMenuItemClickListener()
+            inflate(R.menu.main_menu)
+            show()
+        }
     }
 
 }

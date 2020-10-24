@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.view.ActionMode
+import androidx.appcompat.widget.PopupMenu
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -13,7 +14,7 @@ import com.example.pracnavigationsecertstuff.databinding.FragmentEnterPasswordBi
 import kotlinx.android.synthetic.main.fragment_enter_password.*
 
 
-class FragmentEnterPassword : Fragment() {
+class FragmentEnterPassword : Fragment(), PopupMenu.OnMenuItemClickListener {
 
     private lateinit var binding: FragmentEnterPasswordBinding
     private lateinit var mContext: Context
@@ -52,7 +53,7 @@ class FragmentEnterPassword : Fragment() {
     ) {
         super.onCreateContextMenu(menu, v, menuInfo)
         val inflater = MenuInflater(context)
-        inflater.inflate(R.menu.contextual_menu,menu)
+        inflater.inflate(R.menu.contextual_menu, menu)
 
 
     }
@@ -86,13 +87,13 @@ class FragmentEnterPassword : Fragment() {
             findNavController().navigate(R.id.action_fragmentEnterPassword_to_fragmentSecretStuff)
         } else {
 
-            val action = FragmentEnterPasswordDirections.actionFragmentEnterPasswordToFragmentFailedLogin(
-                password
-            )
+            val action =
+                FragmentEnterPasswordDirections.actionFragmentEnterPasswordToFragmentFailedLogin(
+                    password
+                )
             findNavController().navigate(action)
         }
     }
-
 
 
     private var mActionMode: ActionMode? = null
@@ -152,7 +153,39 @@ class FragmentEnterPassword : Fragment() {
     private fun displayToast(text: String) {
         Toast.makeText(context, text, Toast.LENGTH_LONG).show()
     }
-    
+
+    fun myPopMenu(v: View) {
+        val popupmenu = PopupMenu(mContext, v).apply {
+            //
+            setOnMenuItemClickListener(this@FragmentEnterPassword)
+            //setOnMenuItemClickListener()
+            inflate(R.menu.main_menu)
+            show()
+        }
+    }
+
+    override fun onMenuItemClick(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.main_menu_item_one-> {
+                displayToast("Pop Menu One")
+                true
+            }
+            R.id.main_menu_item_two -> {
+                displayToast("Pop Menu Two")
+                true
+            }
+
+            R.id.main_menu_item_three -> {
+                displayToast("Pop Menu Three")
+                true
+            }
+            else -> false
+        }
+    }
+
+
 }
+
+
 
 
