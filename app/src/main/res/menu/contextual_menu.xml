@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/contextual_one"
+        android:title="Option One"
+        android:icon="@drawable/ic_baseline_one"/>
+
+    <item
+        android:id="@+id/contextual_two"
+        android:title="Option Two"
+        android:icon="@drawable/ic_baseline_two"/>
+
+    <item
+        android:id="@+id/contextual_three"
+        android:title="Option Three"
+        android:icon="@drawable/ic_baseline_three"/>
+
+</menu>

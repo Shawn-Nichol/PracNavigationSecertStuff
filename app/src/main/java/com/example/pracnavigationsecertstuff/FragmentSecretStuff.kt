@@ -1,9 +1,8 @@
 package com.example.pracnavigationsecertstuff
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.appcompat.view.ActionMode
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.FragmentNavigatorExtras
@@ -35,4 +34,6 @@ class FragmentSecretStuff : Fragment() {
         val extras = FragmentNavigatorExtras(tv_super_secret_stuff to "secret_transition")
         findNavController().navigate(R.id.action_fragmentSecertStuff_to_fragmentSuperSecret, null, null, extras)
     }
+
+
 }
