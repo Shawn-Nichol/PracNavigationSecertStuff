@@ -3,10 +3,10 @@ package com.example.pracnavigationsecertstuff
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.PopupMenu
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,15 +21,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId) {
-            R.id.main_menu_item_one -> {
-                displayMenuItemSelection("One")
-                return true
+            R.id.fragmentSecretOne -> {
+                displayMenuItemSelection("Fragment secret one")
+
+                val navController = findNavController(R.id.nav_host_fragment)
+                return NavigationUI.onNavDestinationSelected(item!!, navController) || super.onOptionsItemSelected(item)
             }
             R.id.main_menu_item_two -> {
                 displayMenuItemSelection("Two")
                 return true
             }
-            R.id.main_menu_item_three -> {
+            R.id.main_menu_three -> {
                 displayMenuItemSelection("Three")
                 return true
             }
@@ -43,15 +45,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun myPopMenu(v: View) {
-        PopupMenu(this, v).apply {
-            //
-//            setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener)
-            //setOnMenuItemClickListener()
-            inflate(R.menu.main_menu)
-            show()
-        }
-    }
+
 
 }
 

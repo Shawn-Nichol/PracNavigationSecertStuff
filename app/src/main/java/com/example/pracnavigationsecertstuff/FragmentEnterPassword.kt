@@ -155,7 +155,7 @@ class FragmentEnterPassword : Fragment(), PopupMenu.OnMenuItemClickListener {
     }
 
     fun myPopMenu(v: View) {
-        val popupmenu = PopupMenu(mContext, v).apply {
+        PopupMenu(mContext, v).apply {
             //
             setOnMenuItemClickListener(this@FragmentEnterPassword)
             //setOnMenuItemClickListener()
@@ -166,7 +166,7 @@ class FragmentEnterPassword : Fragment(), PopupMenu.OnMenuItemClickListener {
 
     override fun onMenuItemClick(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.main_menu_item_one-> {
+            R.id.fragmentSecretOne-> {
                 displayToast("Pop Menu One")
                 true
             }
@@ -175,7 +175,7 @@ class FragmentEnterPassword : Fragment(), PopupMenu.OnMenuItemClickListener {
                 true
             }
 
-            R.id.main_menu_item_three -> {
+            R.id.main_menu_three -> {
                 displayToast("Pop Menu Three")
                 true
             }

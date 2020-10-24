@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/main_menu_item_one"
+        android:id="@+id/fragmentSecretOne"
         android:title="Item One"
         android:icon="@drawable/ic_building"
         app:showAsAction="ifRoom"/>
@@ -13,7 +13,7 @@
         android:icon="@drawable/ic_head"/>
 
     <item
-        android:id="@+id/main_menu_item_three"
+        android:id="@+id/main_menu_three"
         android:title="Item Three"
         android:icon="@drawable/ic_camera"/>
 

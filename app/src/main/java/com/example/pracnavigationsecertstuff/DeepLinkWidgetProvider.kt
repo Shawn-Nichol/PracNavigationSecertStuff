@@ -3,7 +3,6 @@ package com.example.pracnavigationsecertstuff
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
-import android.os.Bundle
 import android.widget.RemoteViews
 import androidx.navigation.NavDeepLinkBuilder
 
@@ -21,8 +20,6 @@ class DeepLinkWidgetProvider : AppWidgetProvider() {
                 context.packageName,
                 R.layout.deep_link_widget_provider
             )
-
-            val args = Bundle()
 
             val pendingIntent = NavDeepLinkBuilder(context)
                 .setGraph(R.navigation.nav_graph)
