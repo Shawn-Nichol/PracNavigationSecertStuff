@@ -8,12 +8,12 @@
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/main_menu_item_two"
+        android:id="@+id/fragmentMenuTwo"
         android:title="Item Two"
         android:icon="@drawable/ic_head"/>
 
     <item
-        android:id="@+id/main_menu_three"
+        android:id="@+id/fragmentMenuThree"
         android:title="Item Three"
         android:icon="@drawable/ic_camera"/>
 

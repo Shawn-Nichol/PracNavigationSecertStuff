@@ -9,7 +9,10 @@ import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.PopupMenu
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 
 import com.example.pracnavigationsecertstuff.databinding.FragmentLoginBinding
 import kotlinx.android.synthetic.main.fragment_login.*
@@ -19,6 +22,7 @@ class FragmentLogin : Fragment(), PopupMenu.OnMenuItemClickListener {
 
     private lateinit var binding: FragmentLoginBinding
     private lateinit var mContext: Context
+    private lateinit var navController: NavController
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -42,6 +46,7 @@ class FragmentLogin : Fragment(), PopupMenu.OnMenuItemClickListener {
         // Register view for floating menu.
         registerForContextMenu(binding.btnFloatingMenu)
 
+        navController = requireActivity().findNavController(R.id.nav_host_fragment)
 
         Log.i("Prac", "onCreateView")
         return binding.root
@@ -55,22 +60,25 @@ class FragmentLogin : Fragment(), PopupMenu.OnMenuItemClickListener {
         super.onCreateContextMenu(menu, v, menuInfo)
         val inflater = MenuInflater(context)
         inflater.inflate(R.menu.contextual_menu, menu)
-
-
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
+        val navController = requireActivity().findNavController(R.id.nav_host_fragment)
+
         return when (item.itemId) {
-            R.id.contextual_one -> {
+            R.id.fragmentContextualOne -> {
                 displayToast("Floating menu Item One")
+                NavigationUI.onNavDestinationSelected(item, navController)
                 true
             }
-            R.id.contextual_two -> {
+            R.id.fragmentContextualTwo -> {
                 displayToast("Floating menu Item Two")
+                NavigationUI.onNavDestinationSelected(item, navController)
                 true
             }
-            R.id.contextual_three -> {
+            R.id.fragmentContextualThree -> {
                 displayToast("Floating menu Item Three")
+                NavigationUI.onNavDestinationSelected(item, navController)
                 true
             }
             else -> false
@@ -125,20 +133,26 @@ class FragmentLogin : Fragment(), PopupMenu.OnMenuItemClickListener {
 
         // Called when the user selects a contextual menu item
         override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {
+
+
             return when (item.itemId) {
-                R.id.contextual_one -> {
+                R.id.fragmentContextualOne -> {
                     displayToast("CAB One")
+                    NavigationUI.onNavDestinationSelected(item, navController)
                     mode.finish() // Action picked, so close the CAB
+                    NavigationUI.onNavDestinationSelected(item, navController)
                     true
                 }
-                R.id.contextual_two -> {
+                R.id.fragmentContextualTwo -> {
                     displayToast("CAB Two")
                     mode.finish() // Action picked, so close the CAB
+                    NavigationUI.onNavDestinationSelected(item, navController)
                     true
                 }
-                R.id.contextual_three -> {
+                R.id.fragmentContextualThree -> {
                     displayToast("CAB Three")
                     mode.finish() // Action picked, so close the CAB
+                    NavigationUI.onNavDestinationSelected(item, navController)
                     true
                 }
                 else -> false
@@ -165,19 +179,25 @@ class FragmentLogin : Fragment(), PopupMenu.OnMenuItemClickListener {
         }
     }
 
+    /**
+     * Handles Pop Menu clicks
+     */
     override fun onMenuItemClick(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.fragmentMenuOne-> {
                 displayToast("Pop Menu One")
+                NavigationUI.onNavDestinationSelected(item, navController)
                 true
             }
-            R.id.main_menu_item_two -> {
+            R.id.fragmentMenuTwo -> {
                 displayToast("Pop Menu Two")
+                NavigationUI.onNavDestinationSelected(item, navController)
                 true
             }
 
-            R.id.main_menu_three -> {
+            R.id.fragmentMenuThree -> {
                 displayToast("Pop Menu Three")
+                NavigationUI.onNavDestinationSelected(item, navController)
                 true
             }
             else -> false

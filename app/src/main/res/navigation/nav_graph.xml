@@ -33,9 +33,6 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
-        <action
-            android:id="@+id/action_EnterPassword_dest_to_main_menu_three"
-            app:destination="@id/main_menu_three" />
     </fragment>
     <fragment
         android:id="@+id/FailedLogin_dest"
@@ -74,4 +71,29 @@
         android:name="com.example.pracnavigationsecertstuff.FragmentMenuOne"
         android:label="FragmentSecretOne"
         tools:layout="@layout/fragment_menu_one"/>
+    <fragment
+        android:id="@+id/fragmentMenuTwo"
+        android:name="com.example.pracnavigationsecertstuff.FragmentMenuTwo"
+        android:label="FragmentMenuTwo"
+        tools:layout="@layout/fragment_menu_two"/>
+    <fragment
+        android:id="@+id/fragmentMenuThree"
+        android:name="com.example.pracnavigationsecertstuff.FragmentMenuThree"
+        android:label="FragmentMenuThree"
+        tools:layout="@layout/fragment_menu_three"/>
+    <fragment
+        android:id="@+id/fragmentContextualOne"
+        android:name="com.example.pracnavigationsecertstuff.FragmentContextualOne"
+        android:label="FragmentContextualOne"
+        tools:layout="@layout/fragment_contextual_one"/>
+    <fragment
+        android:id="@+id/fragmentContextualTwo"
+        android:name="com.example.pracnavigationsecertstuff.FragmentContextualTwo"
+        android:label="FragmentContextualTwo"
+        tools:layout="@layout/fragment_contextual_two"/>
+    <fragment
+        android:id="@+id/fragmentContextualThree"
+        android:name="com.example.pracnavigationsecertstuff.FragmentContextualThree"
+        android:label="FragmentContextualThree"
+        tools:layout="@layout/fragment_contextual_three"/>
 </navigation>

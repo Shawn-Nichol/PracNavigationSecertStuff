@@ -19,21 +19,24 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+    // Option menu selection
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment)
+
         return when(item.itemId) {
             R.id.fragmentMenuOne -> {
                 displayMenuItemSelection("Fragment secret one")
 
-                val navController = findNavController(R.id.nav_host_fragment)
-                return NavigationUI.onNavDestinationSelected(item!!, navController) || super.onOptionsItemSelected(item)
+
+                return NavigationUI.onNavDestinationSelected(item, navController)
             }
-            R.id.main_menu_item_two -> {
+            R.id.fragmentMenuTwo -> {
                 displayMenuItemSelection("Two")
-                return true
+                return NavigationUI.onNavDestinationSelected(item, navController)
             }
-            R.id.main_menu_three -> {
+            R.id.fragmentMenuThree -> {
                 displayMenuItemSelection("Three")
-                return true
+                return NavigationUI.onNavDestinationSelected(item, navController)
             }
             else -> super.onOptionsItemSelected(item)
 
