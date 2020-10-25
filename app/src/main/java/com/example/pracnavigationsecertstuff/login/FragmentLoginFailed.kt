@@ -1,4 +1,4 @@
-package com.example.pracnavigationsecertstuff
+package com.example.pracnavigationsecertstuff.login
 
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+
+import com.example.pracnavigationsecertstuff.R
 import com.example.pracnavigationsecertstuff.databinding.FragmentLoginFailedBinding
 
 
@@ -19,6 +21,7 @@ class FragmentLoginFailed : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // Receive data from FragmentLogin
         val args = FragmentLoginFailedArgs.fromBundle(requireArguments())
 
 

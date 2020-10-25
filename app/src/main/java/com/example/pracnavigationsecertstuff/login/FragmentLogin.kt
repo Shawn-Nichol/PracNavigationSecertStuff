@@ -1,4 +1,4 @@
-package com.example.pracnavigationsecertstuff
+package com.example.pracnavigationsecertstuff.login
 
 import android.content.Context
 import android.os.Bundle
@@ -13,6 +13,8 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.example.pracnavigationsecertstuff.MainActivity
+import com.example.pracnavigationsecertstuff.R
 
 import com.example.pracnavigationsecertstuff.databinding.FragmentLoginBinding
 import kotlinx.android.synthetic.main.fragment_login.*
@@ -96,6 +98,7 @@ class FragmentLogin : Fragment(), PopupMenu.OnMenuItemClickListener {
             findNavController().navigate(R.id.action_fragmentEnterPassword_to_fragmentSecretStuff)
         } else {
 
+            // Pass data to FragmentLoginFailed with type safety.
             val action =
                 FragmentLoginDirections.actionFragmentEnterPasswordToFragmentFailedLogin(
                     password ?: -1
@@ -138,7 +141,6 @@ class FragmentLogin : Fragment(), PopupMenu.OnMenuItemClickListener {
             return when (item.itemId) {
                 R.id.fragmentContextualOne -> {
                     displayToast("CAB One")
-                    NavigationUI.onNavDestinationSelected(item, navController)
                     mode.finish() // Action picked, so close the CAB
                     NavigationUI.onNavDestinationSelected(item, navController)
                     true
@@ -184,7 +186,7 @@ class FragmentLogin : Fragment(), PopupMenu.OnMenuItemClickListener {
      */
     override fun onMenuItemClick(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.fragmentMenuOne-> {
+            R.id.fragmentMenuOne -> {
                 displayToast("Pop Menu One")
                 NavigationUI.onNavDestinationSelected(item, navController)
                 true

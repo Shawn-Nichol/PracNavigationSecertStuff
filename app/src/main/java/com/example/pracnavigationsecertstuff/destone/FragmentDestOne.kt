@@ -1,4 +1,4 @@
-package com.example.pracnavigationsecertstuff
+package com.example.pracnavigationsecertstuff.destone
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import com.example.pracnavigationsecertstuff.R
 import com.example.pracnavigationsecertstuff.databinding.FragmentDestOneBinding
 import kotlinx.android.synthetic.main.fragment_dest_one.*
 
@@ -31,10 +32,9 @@ class FragmentDestOne : Fragment() {
         findNavController().navigate(R.id.action_logout)
     }
 
-    fun superSecretStuff() {
+    fun loadDestTwo() {
         val extras = FragmentNavigatorExtras(tv_destination_two to "secret_transition")
-        findNavController().navigate(R.id.action_fragmentSecertStuff_to_fragmentSuperSecret, null, null, extras)
+        findNavController().navigate(R.id.fragmentDestOne_to_fragmentDestTwo, null, null, extras)
     }
-
 
 }
