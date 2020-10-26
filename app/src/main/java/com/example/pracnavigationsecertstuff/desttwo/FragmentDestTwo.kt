@@ -31,14 +31,12 @@ class FragmentDestTwo : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_dest_two, container, false)
         binding.binding = this
 
-
-
-
         val recyclerView = binding.rvContainer
         recyclerView.apply{
             adapter = mAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
+            // Delay transition on back press
             postponeEnterTransition()
             viewTreeObserver.addOnPreDrawListener {
                 startPostponedEnterTransition()
@@ -49,15 +47,7 @@ class FragmentDestTwo : Fragment() {
         return binding.root
     }
 
-    /**
-     * Handles clicks in recyclerView.
-     */
-//    override fun onItemClick(position: Int, binding: FragmentDestTwoBinding) {
-//        Toast.makeText(context, "RV Item $position", Toast.LENGTH_SHORT).show()
-//
-//        findNavController().navigate(R.id.fragmentDestTwoDetails)
-//
-//    }
+
 
     fun dummyData() : MutableList<Int> {
         val list: MutableList<Int> = mutableListOf()

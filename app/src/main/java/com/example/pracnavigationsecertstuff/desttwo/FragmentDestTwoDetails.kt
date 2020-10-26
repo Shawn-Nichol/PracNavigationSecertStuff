@@ -5,7 +5,6 @@ import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.pracnavigationsecertstuff.R
@@ -21,7 +20,6 @@ class FragmentDestTwoDetails : Fragment() {
         super.onCreate(savedInstanceState)
 
         name = arguments?.getInt("userName") ?: -1
-        Toast.makeText(context, "Details rv item $name", Toast.LENGTH_SHORT).show()
 
         sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
     }

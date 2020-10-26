@@ -26,10 +26,10 @@ class RVAdapter(private var dataSet: MutableList<Int>) :
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataSet[position]
         holder.tv.text = item.toString()
+        holder.tv.transitionName = item.toString()
 
         holder.tv.setOnClickListener {
             val bundle = bundleOf("userName" to dataSet[position])
-            holder.tv.transitionName = item.toString()
             val extras = FragmentNavigatorExtras(holder.tv to "rv_transition")
             Navigation.findNavController(holder.tv).navigate(R.id.action_desttwo_to_desttwo_details, bundle, null, extras)
         }
