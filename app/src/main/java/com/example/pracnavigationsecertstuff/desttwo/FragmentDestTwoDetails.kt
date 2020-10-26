@@ -19,7 +19,8 @@ class FragmentDestTwoDetails : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        name = arguments?.getInt("userName") ?: -1
+        val args = FragmentDestTwoDetailsArgs.fromBundle(requireArguments())
+        name = args.rvPosition
 
         sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
     }

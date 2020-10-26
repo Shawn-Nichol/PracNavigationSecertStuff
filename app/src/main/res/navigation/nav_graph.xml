@@ -64,9 +64,6 @@
         <deepLink
             android:id="@+id/deepLink"
             app:uri="myapp://navsecretStuff.com/supersecret" />
-        <action
-            android:id="@+id/action_SuperSecret_dest_to_fragmentDestTwoDetails"
-            app:destination="@id/fragmentDestTwoDetails" />
 
         <action
             android:id="@+id/action_desttwo_to_desttwo_details"
@@ -81,8 +78,9 @@
         tools:layout="@layout/fragment_dest_two_details">
 
         <argument
-            android:name="videoId"
-            app:argType="string"/>
+            android:name="rvPosition"
+            app:argType="integer"
+            android:defaultValue="-1" />
 
     </fragment>
 

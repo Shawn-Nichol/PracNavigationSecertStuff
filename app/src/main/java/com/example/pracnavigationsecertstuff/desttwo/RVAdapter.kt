@@ -4,8 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.os.bundleOf
-import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pracnavigationsecertstuff.R
@@ -29,9 +28,10 @@ class RVAdapter(private var dataSet: MutableList<Int>) :
         holder.tv.transitionName = item.toString()
 
         holder.tv.setOnClickListener {
-            val bundle = bundleOf("userName" to dataSet[position])
+
+            val action = FragmentDestTwoDirections.actionDesttwoToDesttwoDetails(item)
             val extras = FragmentNavigatorExtras(holder.tv to "rv_transition")
-            Navigation.findNavController(holder.tv).navigate(R.id.action_desttwo_to_desttwo_details, bundle, null, extras)
+            it.findNavController().navigate(action, extras)
         }
     }
 
