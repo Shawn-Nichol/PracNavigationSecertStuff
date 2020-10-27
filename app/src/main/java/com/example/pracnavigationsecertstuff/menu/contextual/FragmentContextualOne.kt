@@ -22,6 +22,7 @@ class FragmentContextualOne : Fragment() {
         binding = DataBindingUtil.inflate(inflater,
             R.layout.fragment_contextual_one, container, false)
 
+
         return binding.root
     }
 }

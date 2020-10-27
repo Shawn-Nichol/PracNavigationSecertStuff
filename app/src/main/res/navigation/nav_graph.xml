@@ -3,21 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/EnterPassword_dest">
+    app:startDestination="@id/login_dest">
 
 
     <!--Global action-->
     <action
         android:id="@+id/action_logout"
-        app:destination="@+id/EnterPassword_dest"
+        app:destination="@+id/login_dest"
         app:enterAnim="@anim/fade_in"
         app:exitAnim="@anim/fade_out"
         app:popUpToInclusive="true" />
 
     <fragment
-        android:id="@+id/EnterPassword_dest"
+        android:id="@+id/login_dest"
         android:name="com.example.pracnavigationsecertstuff.login.FragmentLogin"
-        android:label="fragment_enter_password"
+        android:label="Login"
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_fragmentEnterPassword_to_fragmentFailedLogin"
@@ -37,7 +37,7 @@
     <fragment
         android:id="@+id/FailedLogin_dest"
         android:name="com.example.pracnavigationsecertstuff.login.FragmentLoginFailed"
-        android:label="fragment_failed_login"
+        android:label="Failed Login"
         tools:layout="@layout/fragment_login_failed">
 
         <argument
@@ -48,7 +48,7 @@
     <fragment
         android:id="@+id/fragmentDestOne_dest"
         android:name="com.example.pracnavigationsecertstuff.destone.FragmentDestOne"
-        android:label="fragment_dest_one"
+        android:label="Destination One"
         tools:layout="@layout/fragment_dest_one" >
         <action
             android:id="@+id/fragmentDestOne_to_fragmentDestTwo"
@@ -58,7 +58,7 @@
     <fragment
         android:id="@+id/fragmentDestTwo_dest"
         android:name="com.example.pracnavigationsecertstuff.desttwo.FragmentDestTwo"
-        android:label="FragmentDestTwo"
+        android:label="Destination Two"
         tools:layout="@layout/fragment_dest_two">
 
         <deepLink
@@ -74,7 +74,7 @@
     <fragment
         android:id="@+id/fragmentDestTwoDetails"
         android:name="com.example.pracnavigationsecertstuff.desttwo.FragmentDestTwoDetails"
-        android:label="FragmentDestTwoDetails"
+        android:label="Details"
         tools:layout="@layout/fragment_dest_two_details">
 
         <argument
@@ -88,32 +88,32 @@
     <fragment
         android:id="@+id/fragmentMenuOne"
         android:name="com.example.pracnavigationsecertstuff.menu.options.FragmentMenuOne"
-        android:label="FragmentSecretOne"
+        android:label="Menu One"
         tools:layout="@layout/fragment_menu_one"/>
     <fragment
         android:id="@+id/fragmentMenuTwo"
         android:name="com.example.pracnavigationsecertstuff.menu.options.FragmentMenuTwo"
-        android:label="FragmentMenuTwo"
+        android:label="Menu Two"
         tools:layout="@layout/fragment_menu_two"/>
     <fragment
         android:id="@+id/fragmentMenuThree"
         android:name="com.example.pracnavigationsecertstuff.menu.options.FragmentMenuThree"
-        android:label="FragmentMenuThree"
+        android:label="Menu Three"
         tools:layout="@layout/fragment_menu_three"/>
     <fragment
         android:id="@+id/fragmentContextualOne"
         android:name="com.example.pracnavigationsecertstuff.menu.contextual.FragmentContextualOne"
-        android:label="FragmentContextualOne"
+        android:label="Contextual One"
         tools:layout="@layout/fragment_contextual_one"/>
     <fragment
         android:id="@+id/fragmentContextualTwo"
         android:name="com.example.pracnavigationsecertstuff.menu.contextual.FragmentContextualTwo"
-        android:label="FragmentContextualTwo"
+        android:label="Contextual Two"
         tools:layout="@layout/fragment_contextual_two"/>
     <fragment
         android:id="@+id/fragmentContextualThree"
         android:name="com.example.pracnavigationsecertstuff.menu.contextual.FragmentContextualThree"
-        android:label="FragmentContextualThree"
+        android:label="Contextual Three"
         tools:layout="@layout/fragment_contextual_three"/>
 
 </navigation>
