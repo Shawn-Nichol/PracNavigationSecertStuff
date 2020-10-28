@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/fragmentMenuOne"
+        android:id="@+id/dest_menu_one"
         android:title="Item One"
         android:icon="@drawable/ic_building"
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/fragmentMenuTwo"
+        android:id="@+id/dest_menu_two"
         android:title="Item Two"
         android:icon="@drawable/ic_head"/>
 
     <item
-        android:id="@+id/fragmentMenuThree"
+        android:id="@+id/dest_menu_three"
         android:title="Item Three"
         android:icon="@drawable/ic_camera"/>
 

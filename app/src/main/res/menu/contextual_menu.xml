@@ -2,17 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/fragmentContextualOne"
+        android:id="@+id/dest_contextual_one"
         android:title="Option One"
         android:icon="@drawable/ic_baseline_one"/>
 
     <item
-        android:id="@+id/fragmentContextualTwo"
+        android:id="@+id/dest_contextual_two"
         android:title="Option Two"
         android:icon="@drawable/ic_baseline_two"/>
 
     <item
-        android:id="@+id/fragmentContextualThree"
+        android:id="@+id/dest_contextual_three"
         android:title="Option Three"
         android:icon="@drawable/ic_baseline_three"/>
 

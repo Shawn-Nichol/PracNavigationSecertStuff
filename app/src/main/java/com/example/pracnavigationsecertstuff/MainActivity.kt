@@ -5,46 +5,26 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.*
+import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var myAppBar: AppBarConfiguration
+
+    private lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Sets the Toolbar.
-        setSupportActionBar(findViewById(R.id.my_toolbar))
-
-        // Because the view is yet to load the fragment view cannot be found, for the nav controller
-        // to be properly set, the fragment view needs to be created an onViewCreated() needs to be
-        // dispatched, which does not happen until the ACTIVITY_CREATED State.
-
-        // Retrieve the navController directly from the NavHostFragment
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
-
-        // Post the call to the findNavController method on a handler and execute all action needed.
-        val navController = navHostFragment!!.findNavController()
-
-
-        /**
-         * Setup up the actionBar returned by AppCompatActivity.getSupportActionBar() for use with a
-         * NavController. By calling this the title of the action bar will be automatically updated
-         * when the destination changes.
-         *
-         * The start destination of your navigation graph is considered teh ony top level destination.
-         * On all other destinations, the Actionbar will show the Up button. Call NavController.navigateUP
-         * to handle the up button.
-         *
-         * activity: AppCompatActivity: The activity hosting the action bar that should be kept in sync
-         * with changes to the NavController.
-         *
-         * navController: The NavController that supplies the secondary menu. navigation actions on
-         * this NavController will be reflected in teh title of the action bar.
-         */
-        NavigationUI.setupActionBarWithNavController(this, navController)
-
+        initNavDrawer()
+        initDrawerClickListener()
 
     }
 
@@ -55,8 +35,13 @@ class MainActivity : AppCompatActivity() {
      * return: true if Up navigation completed successfully and this Activity was finished, false otherwise.
      */
     override fun onSupportNavigateUp(): Boolean {
-        val navController = this.findNavController(R.id.nav_host_fragment)
-        return navController.navigateUp()
+        return findNavController(R.id.nav_host_fragment).navigateUp(myAppBar)
+    }
+
+    override fun onBackPressed() {
+        if(this.myDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            this.myDrawerLayout.closeDrawer(GravityCompat.START)
+        } else super.onBackPressed()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -66,33 +51,94 @@ class MainActivity : AppCompatActivity() {
 
     // Option menu selection
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment)
+
 
         return when(item.itemId) {
-            R.id.fragmentMenuOne -> {
+            R.id.dest_menu_one -> {
                 displayMenuItemSelection("Fragment secret one")
-
-
                 return NavigationUI.onNavDestinationSelected(item, navController)
             }
-            R.id.fragmentMenuTwo -> {
+            R.id.dest_menu_two -> {
                 displayMenuItemSelection("Two")
                 return NavigationUI.onNavDestinationSelected(item, navController)
             }
-            R.id.fragmentMenuThree -> {
+            R.id.dest_menu_three -> {
                 displayMenuItemSelection("Three")
                 return NavigationUI.onNavDestinationSelected(item, navController)
             }
+
             else -> super.onOptionsItemSelected(item)
 
         }
     }
 
     fun displayMenuItemSelection(item: String) {
-        Toast.makeText(applicationContext, "MenuItem $item selected", Toast.LENGTH_LONG).show()
+        Toast.makeText(applicationContext, "MenuItem $item selected", Toast.LENGTH_SHORT).show()
 
     }
 
+    fun initNavDrawer() {
+        // Because the view is yet to load the fragment view cannot be found, for the nav controller
+        // to be properly set, the fragment view needs to be created an onViewCreated() needs to be
+        // dispatched, which does not happen until the ACTIVITY_CREATED State.
 
+        // Retrieve the navController directly from the NavHostFragment
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+
+        // Post the call to the findNavController method on a handler and execute all action needed.
+        navController = navHostFragment.navController
+
+        // Sets a Toolbar for use with a NavController
+        // navController: the NavController whose navigation action will be called.
+        // drawerLayout: The DrawerLayout that should be toggled from the Navigation button
+        myToolbar.setupWithNavController(navController, myDrawerLayout)
+
+        // Sets the ToolBar as the action bar.
+        setSupportActionBar(myToolbar)
+
+
+
+        // AppBarConfiguration passes in top level destination.
+        myAppBar = AppBarConfiguration(setOf(R.id.dest_login,
+            R.id.dest_menu_one, R.id.dest_menu_two, R.id.dest_menu_three,
+            R.id.dest_contextual_one, R.id.dest_contextual_two, R.id.dest_contextual_three), myDrawerLayout)
+
+        // Sets up the ActionBar returned by AppCompatActivity.getSupportActionbar() for use with a
+        // navController.
+        //
+        setupActionBarWithNavController(navController, myAppBar)
+    }
+
+
+    fun initDrawerClickListener() {
+        myNavView.setNavigationItemSelectedListener { menuItem ->
+            when(menuItem.itemId) {
+                R.id.nav_first -> {
+                    displayMenuItemSelection("Nav One")
+                    navController.navigate(R.id.dest_menu_one)
+                    myDrawerLayout.closeDrawer(GravityCompat.START)
+                    true
+                }
+
+                R.id.nav_second -> {
+                    displayMenuItemSelection("Nav Two")
+                    navController.navigate(R.id.dest_menu_two)
+                    myDrawerLayout.closeDrawer(GravityCompat.START)
+                    true
+                }
+                R.id.nav_three -> {
+                    displayMenuItemSelection("Nav Three")
+                    navController.navigate(R.id.dest_menu_three)
+                    myDrawerLayout.closeDrawer(GravityCompat.START)
+                    true
+                }
+                else -> {false}
+
+
+            }
+
+        }
+
+    }
 }
 

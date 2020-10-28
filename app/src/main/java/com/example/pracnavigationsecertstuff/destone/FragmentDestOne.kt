@@ -34,7 +34,7 @@ class FragmentDestOne : Fragment() {
 
     fun loadDestTwo() {
         val extras = FragmentNavigatorExtras(tv_destination_two to "secret_transition")
-        findNavController().navigate(R.id.fragmentDestOne_to_fragmentDestTwo, null, null, extras)
+        findNavController().navigate(R.id.action_dest_one_to_dest_two, null, null, extras)
     }
 
 }

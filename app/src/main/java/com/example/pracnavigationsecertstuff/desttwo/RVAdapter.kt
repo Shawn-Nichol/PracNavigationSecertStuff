@@ -29,7 +29,7 @@ class RVAdapter(private var dataSet: MutableList<Int>) :
 
         holder.tv.setOnClickListener {
 
-            val action = FragmentDestTwoDirections.actionDesttwoToDesttwoDetails(item)
+            val action = FragmentDestTwoDirections.actionDestTwoToDestTwoDetails(item)
             val extras = FragmentNavigatorExtras(holder.tv to "rv_transition")
             it.findNavController().navigate(action, extras)
         }

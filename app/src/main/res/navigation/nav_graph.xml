@@ -3,39 +3,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/login_dest">
+    app:startDestination="@id/dest_login">
 
 
     <!--Global action-->
     <action
         android:id="@+id/action_logout"
-        app:destination="@+id/login_dest"
+        app:destination="@+id/dest_login"
         app:enterAnim="@anim/fade_in"
         app:exitAnim="@anim/fade_out"
         app:popUpToInclusive="true" />
 
     <fragment
-        android:id="@+id/login_dest"
+        android:id="@+id/dest_login"
         android:name="com.example.pracnavigationsecertstuff.login.FragmentLogin"
         android:label="Login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_fragmentEnterPassword_to_fragmentFailedLogin"
-            app:destination="@id/FailedLogin_dest"
+            android:id="@+id/action_login_to_failed"
+            app:destination="@id/dest_failed_login"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
         <action
-            android:id="@+id/action_fragmentEnterPassword_to_fragmentSecretStuff"
-            app:destination="@id/fragmentDestOne_dest"
+            android:id="@+id/action_login_to_dest_one"
+            app:destination="@id/dest_dest_one"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
-        android:id="@+id/FailedLogin_dest"
+        android:id="@+id/dest_failed_login"
         android:name="com.example.pracnavigationsecertstuff.login.FragmentLoginFailed"
         android:label="Failed Login"
         tools:layout="@layout/fragment_login_failed">
@@ -46,17 +46,17 @@
             android:defaultValue="0" />
     </fragment>
     <fragment
-        android:id="@+id/fragmentDestOne_dest"
+        android:id="@+id/dest_dest_one"
         android:name="com.example.pracnavigationsecertstuff.destone.FragmentDestOne"
         android:label="Destination One"
         tools:layout="@layout/fragment_dest_one" >
         <action
-            android:id="@+id/fragmentDestOne_to_fragmentDestTwo"
-            app:destination="@id/fragmentDestTwo_dest" />
+            android:id="@+id/action_dest_one_to_dest_two"
+            app:destination="@id/dest_dest_two" />
     </fragment>
 
     <fragment
-        android:id="@+id/fragmentDestTwo_dest"
+        android:id="@+id/dest_dest_two"
         android:name="com.example.pracnavigationsecertstuff.desttwo.FragmentDestTwo"
         android:label="Destination Two"
         tools:layout="@layout/fragment_dest_two">
@@ -66,13 +66,13 @@
             app:uri="myapp://navsecretStuff.com/supersecret" />
 
         <action
-            android:id="@+id/action_desttwo_to_desttwo_details"
-            app:destination="@+id/fragmentDestTwoDetails"/>
+            android:id="@+id/action_dest_two_to_dest_two_details"
+            app:destination="@+id/dest_dest_two_details"/>
 
     </fragment>
 
     <fragment
-        android:id="@+id/fragmentDestTwoDetails"
+        android:id="@+id/dest_dest_two_details"
         android:name="com.example.pracnavigationsecertstuff.desttwo.FragmentDestTwoDetails"
         android:label="Details"
         tools:layout="@layout/fragment_dest_two_details">
@@ -86,32 +86,32 @@
 
 
     <fragment
-        android:id="@+id/fragmentMenuOne"
+        android:id="@+id/dest_menu_one"
         android:name="com.example.pracnavigationsecertstuff.menu.options.FragmentMenuOne"
         android:label="Menu One"
         tools:layout="@layout/fragment_menu_one"/>
     <fragment
-        android:id="@+id/fragmentMenuTwo"
+        android:id="@+id/dest_menu_two"
         android:name="com.example.pracnavigationsecertstuff.menu.options.FragmentMenuTwo"
         android:label="Menu Two"
         tools:layout="@layout/fragment_menu_two"/>
     <fragment
-        android:id="@+id/fragmentMenuThree"
+        android:id="@+id/dest_menu_three"
         android:name="com.example.pracnavigationsecertstuff.menu.options.FragmentMenuThree"
         android:label="Menu Three"
         tools:layout="@layout/fragment_menu_three"/>
     <fragment
-        android:id="@+id/fragmentContextualOne"
+        android:id="@+id/dest_contextual_one"
         android:name="com.example.pracnavigationsecertstuff.menu.contextual.FragmentContextualOne"
         android:label="Contextual One"
         tools:layout="@layout/fragment_contextual_one"/>
     <fragment
-        android:id="@+id/fragmentContextualTwo"
+        android:id="@+id/dest_contextual_two"
         android:name="com.example.pracnavigationsecertstuff.menu.contextual.FragmentContextualTwo"
         android:label="Contextual Two"
         tools:layout="@layout/fragment_contextual_two"/>
     <fragment
-        android:id="@+id/fragmentContextualThree"
+        android:id="@+id/dest_contextual_three"
         android:name="com.example.pracnavigationsecertstuff.menu.contextual.FragmentContextualThree"
         android:label="Contextual Three"
         tools:layout="@layout/fragment_contextual_three"/>

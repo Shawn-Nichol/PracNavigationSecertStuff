@@ -23,7 +23,7 @@ class DeepLinkWidgetProvider : AppWidgetProvider() {
 
             val pendingIntent = NavDeepLinkBuilder(context)
                 .setGraph(R.navigation.nav_graph)
-                .setDestination(R.id.fragmentDestTwo_dest)
+                .setDestination(R.id.dest_dest_two)
                 .createPendingIntent()
 
             remoteViews.setOnClickPendingIntent(R.id.deep_link_button, pendingIntent)
