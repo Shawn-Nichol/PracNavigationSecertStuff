@@ -86,10 +86,10 @@
 
 
     <fragment
-        android:id="@+id/dest_menu_one"
+        android:id="@+id/dest_menu_constraint_practice"
         android:name="com.example.pracnavigationsecertstuff.menu.options.FragmentMenuOne"
         android:label="Menu One"
-        tools:layout="@layout/fragment_menu_one"/>
+        tools:layout="@layout/fragment_menu_constraint"/>
     <fragment
         android:id="@+id/dest_menu_two"
         android:name="com.example.pracnavigationsecertstuff.menu.options.FragmentMenuTwo"

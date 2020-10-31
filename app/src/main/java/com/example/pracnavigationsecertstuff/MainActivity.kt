@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 
 
         return when(item.itemId) {
-            R.id.dest_menu_one -> {
+            R.id.dest_menu_constraint_practice -> {
                 displayMenuItemSelection("Fragment secret one")
                 return NavigationUI.onNavDestinationSelected(item, navController)
             }
@@ -100,7 +100,7 @@ class MainActivity : AppCompatActivity() {
 
         // AppBarConfiguration passes in top level destination.
         myAppBar = AppBarConfiguration(setOf(R.id.dest_login,
-            R.id.dest_menu_one, R.id.dest_menu_two, R.id.dest_menu_three,
+            R.id.dest_menu_constraint_practice, R.id.dest_menu_two, R.id.dest_menu_three,
             R.id.dest_contextual_one, R.id.dest_contextual_two, R.id.dest_contextual_three), myDrawerLayout)
 
         // Sets up the ActionBar returned by AppCompatActivity.getSupportActionbar() for use with a
@@ -115,7 +115,7 @@ class MainActivity : AppCompatActivity() {
             when(menuItem.itemId) {
                 R.id.nav_first -> {
                     displayMenuItemSelection("Nav One")
-                    navController.navigate(R.id.dest_menu_one)
+                    navController.navigate(R.id.dest_menu_constraint_practice)
                     myDrawerLayout.closeDrawer(GravityCompat.START)
                     true
                 }
@@ -138,6 +138,8 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+
+
 
     }
 }

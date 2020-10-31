@@ -188,7 +188,7 @@ class FragmentLogin : Fragment(), PopupMenu.OnMenuItemClickListener {
      */
     override fun onMenuItemClick(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.dest_menu_one -> {
+            R.id.dest_menu_constraint_practice -> {
                 displayToast("Pop Menu One")
                 NavigationUI.onNavDestinationSelected(item, navController)
                 true
