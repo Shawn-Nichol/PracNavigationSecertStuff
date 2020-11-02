@@ -92,9 +92,9 @@
         tools:layout="@layout/fragment_menu_constraint"/>
     <fragment
         android:id="@+id/dest_menu_two"
-        android:name="com.example.pracnavigationsecertstuff.menu.options.FragmentMenuTwo"
+        android:name="com.example.pracnavigationsecertstuff.menu.options.FragmentMenuPlaceHolder"
         android:label="Menu Two"
-        tools:layout="@layout/fragment_menu_two"/>
+        tools:layout="@layout/fragment_menu_placeholder"/>
     <fragment
         android:id="@+id/dest_keyframe"
         android:name="com.example.pracnavigationsecertstuff.menu.options.FragmentKeyFrame"

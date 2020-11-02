@@ -9,12 +9,12 @@
 
     <item
         android:id="@+id/dest_menu_two"
-        android:title="Item Two"
+        android:title="Place Holder"
         android:icon="@drawable/ic_head" />
 
     <item
         android:id="@+id/dest_keyframe"
-        android:title="Item Three"
+        android:title="Key Frame"
         android:icon="@drawable/ic_camera"/>
 
 </menu>

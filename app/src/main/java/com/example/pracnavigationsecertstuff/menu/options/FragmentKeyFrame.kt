@@ -7,7 +7,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.databinding.DataBindingUtil
@@ -48,7 +47,7 @@ class FragmentKeyFrame : Fragment() {
         Log.i(TAG, "animate: keyFrame one id: $constraintLayout")
 
         val constraintSet = ConstraintSet()
-        constraintSet.load(mContext, R.layout.fragment_keyframe_2)
+        constraintSet.load(activity, R.layout.fragment_keyframe_2)
 
 
         Log.i(TAG, "animate: keyframe two id: ${R.layout.fragment_keyframe_2}")
@@ -57,7 +56,5 @@ class FragmentKeyFrame : Fragment() {
         // add scenes along with transition objects with calls to setTranition.
         TransitionManager.beginDelayedTransition(constraintLayout)
         constraintSet.applyTo(constraintLayout)
-
-        Toast.makeText(mContext, "KeyFrames don't appear to work in Fragments.", Toast.LENGTH_SHORT).show()
     }
 }
