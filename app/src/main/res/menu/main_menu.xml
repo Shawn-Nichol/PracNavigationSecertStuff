@@ -13,7 +13,7 @@
         android:icon="@drawable/ic_head" />
 
     <item
-        android:id="@+id/dest_menu_three"
+        android:id="@+id/dest_keyframe"
         android:title="Item Three"
         android:icon="@drawable/ic_camera"/>
 

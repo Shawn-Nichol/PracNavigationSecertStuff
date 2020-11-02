@@ -87,7 +87,7 @@
 
     <fragment
         android:id="@+id/dest_menu_constraint_practice"
-        android:name="com.example.pracnavigationsecertstuff.menu.options.FragmentMenuOne"
+        android:name="com.example.pracnavigationsecertstuff.menu.options.FragmentMenuConstraint"
         android:label="Menu One"
         tools:layout="@layout/fragment_menu_constraint"/>
     <fragment
@@ -96,10 +96,10 @@
         android:label="Menu Two"
         tools:layout="@layout/fragment_menu_two"/>
     <fragment
-        android:id="@+id/dest_menu_three"
-        android:name="com.example.pracnavigationsecertstuff.menu.options.FragmentMenuThree"
-        android:label="Menu Three"
-        tools:layout="@layout/fragment_menu_three"/>
+        android:id="@+id/dest_keyframe"
+        android:name="com.example.pracnavigationsecertstuff.menu.options.FragmentKeyFrame"
+        android:label="Key Frame"
+        tools:layout="@layout/fragment_keyframe"/>
     <fragment
         android:id="@+id/dest_contextual_one"
         android:name="com.example.pracnavigationsecertstuff.menu.contextual.FragmentContextualOne"

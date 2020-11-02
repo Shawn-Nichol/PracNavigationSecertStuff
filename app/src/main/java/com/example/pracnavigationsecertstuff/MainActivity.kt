@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
                 displayMenuItemSelection("Two")
                 return NavigationUI.onNavDestinationSelected(item, navController)
             }
-            R.id.dest_menu_three -> {
+            R.id.dest_keyframe -> {
                 displayMenuItemSelection("Three")
                 return NavigationUI.onNavDestinationSelected(item, navController)
             }
@@ -100,7 +100,7 @@ class MainActivity : AppCompatActivity() {
 
         // AppBarConfiguration passes in top level destination.
         myAppBar = AppBarConfiguration(setOf(R.id.dest_login,
-            R.id.dest_menu_constraint_practice, R.id.dest_menu_two, R.id.dest_menu_three,
+            R.id.dest_menu_constraint_practice, R.id.dest_menu_two, R.id.dest_keyframe,
             R.id.dest_contextual_one, R.id.dest_contextual_two, R.id.dest_contextual_three), myDrawerLayout)
 
         // Sets up the ActionBar returned by AppCompatActivity.getSupportActionbar() for use with a
@@ -128,7 +128,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.nav_three -> {
                     displayMenuItemSelection("Nav Three")
-                    navController.navigate(R.id.dest_menu_three)
+                    navController.navigate(R.id.dest_keyframe)
                     myDrawerLayout.closeDrawer(GravityCompat.START)
                     true
                 }
