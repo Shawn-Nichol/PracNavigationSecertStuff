@@ -2,61 +2,44 @@
 <MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:motion="http://schemas.android.com/apk/res-auto">
 
-
     <Transition
-        android:id="@+id/transition_straight"
-        motion:constraintSetEnd="@+id/const_set_right_end"
-        motion:constraintSetStart="@+id/const_set_left_start"
+        android:id="@+id/transition_sine_wave"
+        motion:autoTransition="animateToEnd"
+        motion:constraintSetEnd="@+id/const_set_sin_wave_end"
+        motion:constraintSetStart="@+id/const_set_sin_wave_start"
         motion:duration="2000"
-        motion:motionInterpolator="linear"
-        motion:autoTransition="animateToEnd">
+        motion:motionInterpolator="linear">>
         <OnClick
-            motion:targetId="@+id/const_one_btn_two"
-            motion:clickAction="toggle"/>
+            motion:targetId="@+id/const_one_btn_one"
+            motion:touchAnchorId="@+id/const_one_btn_one"
+            motion:touchAnchorSide="right" />
+
+        <KeyFrameSet>
+            <KeyCycle
+                android:translationY="50dp"
+                motion:framePosition="100"
+                motion:motionTarget="@id/const_one_btn_one"
+                motion:waveOffset="0dp"
+                motion:wavePeriod="0"
+                motion:waveShape="sin" />
+
+            <KeyCycle
+                android:translationY="50dp"
+                motion:framePosition="50"
+                motion:motionTarget="@id/const_one_btn_one"
+                motion:waveOffset="0"
+                motion:wavePeriod="1"
+                motion:waveShape="sin" />
+            <KeyCycle
+                android:translationY="50dp"
+                motion:framePosition="0"
+                motion:motionTarget="@id/const_one_btn_one"
+                motion:waveOffset="0"
+                motion:wavePeriod="0"
+                motion:waveShape="sin" />
+
+        </KeyFrameSet>
     </Transition>
-
-
-        <Transition
-            android:id="@+id/transition_sine_wave"
-            motion:constraintSetStart="@+id/const_set_sin_wave_start"
-            motion:constraintSetEnd="@+id/const_set_sin_wave_end"
-            motion:duration="2000"
-            motion:motionInterpolator="linear"
-            motion:autoTransition="animateToEnd">>
-    <!--        <OnClick-->
-    <!--            motion:touchAnchorId="@+id/const_one_btn_one"-->
-    <!--            motion:touchAnchorSide="right"-->
-    <!--            motion:targetId="@+id/const_one_btn_one"/>-->
-
-    <!--        <KeyFrameSet>-->
-    <!--            <KeyCycle-->
-    <!--                android:translationY="50dp"-->
-    <!--                motion:framePosition="100"-->
-    <!--                motion:motionTarget="@id/const_one_btn_one"-->
-    <!--                motion:waveOffset="0dp"-->
-    <!--                motion:wavePeriod="0"-->
-    <!--                motion:waveShape="sin"/>-->
-
-    <!--            <KeyCycle-->
-    <!--                android:translationY="50dp"-->
-    <!--                motion:framePosition="50"-->
-    <!--                motion:motionTarget="@id/const_one_btn_one"-->
-    <!--                motion:waveOffset="0"-->
-    <!--                motion:wavePeriod="1"-->
-    <!--                motion:waveShape="sin" />-->
-    <!--            <KeyCycle-->
-    <!--                android:translationY="50dp"-->
-    <!--                motion:framePosition="0"-->
-    <!--                motion:motionTarget="@id/const_one_btn_one"-->
-    <!--                motion:waveOffset="0"-->
-    <!--                motion:wavePeriod="0"-->
-    <!--                motion:waveShape="sin" />-->
-
-    <!--        </KeyFrameSet>-->
-        </Transition>
-
-
-
 
     <ConstraintSet android:id="@+id/const_set_sin_wave_start">
         <Constraint
@@ -65,8 +48,8 @@
             android:layout_height="64dp"
             android:layout_marginStart="8dp"
             motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintTop_toTopOf="parent"
-            motion:layout_constraintStart_toStartOf="parent"/>
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
 
     </ConstraintSet>
 
@@ -76,34 +59,10 @@
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_marginEnd="8dp"
+
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintTop_toTopOf="parent" />
     </ConstraintSet>
-
-
-    <ConstraintSet android:id="@+id/const_set_left_start">
-        <Constraint
-            android:id="@+id/const_one_btn_two"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="100dp"
-            motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintStart_toStartOf="parent" />
-    </ConstraintSet>
-
-    <ConstraintSet android:id="@+id/const_set_right_end">
-        <Constraint
-            android:id="@+id/const_one_btn_two"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginEnd="8dp"
-
-            motion:layout_constraintBottom_toBottomOf="parent"
-
-            motion:layout_constraintEnd_toEndOf="parent" />
-    </ConstraintSet>
-
 
 </MotionScene>
