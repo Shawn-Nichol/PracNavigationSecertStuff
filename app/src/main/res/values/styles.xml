@@ -6,6 +6,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowTranslucentStatus">true</item>
+        <!-- This allows the contextual action bar to cover the toolbar instead of pushing it down. -->
         <item name="windowActionModeOverlay">true</item>
     </style>
 
